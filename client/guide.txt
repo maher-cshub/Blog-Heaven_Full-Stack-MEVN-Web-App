@@ -1,0 +1,17 @@
+//packages
+
+//install vue Js globally
+npm i -g @vue/cli
+
+//create a vue application 
+vue create client
+
+//add vuetify
+cd client
+vue add vuetify
+
+//axios to link front
+npm i axios
+
+//start local server
+npm run serve
