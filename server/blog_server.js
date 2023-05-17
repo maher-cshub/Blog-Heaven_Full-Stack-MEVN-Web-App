@@ -14,24 +14,10 @@ const port = process.env.PORT || 8000;
 dotenv.config();
 
 //middelwares
-// 👇️ specify origins to allow
-const whitelist = ['*',"https://64651d5a6a0fae009f51277e--glistening-bombolone-6b841d.netlify.app"];
-
-// ✅ Enable pre-flight requests
-app.options('*', cors());
-
-const corsOptions = {
-  credentials: true,
-  origin: (origin, callback) => {
-    if (whitelist.indexOf(origin) !== -1 || !origin) {
-      callback(null, true);
-    } else {
-      callback(new Error('Not allowed by CORS'));
-    }
-  },
-};
-
-app.use(cors(corsOptions));
+app.use(cors({
+  origin: "*",
+  methods: ["GET","POST","PATCH","DELETE","PUT"]
+}))
 
 app.use(express.json());
 app.use(express.urlencoded({ extended:true }));
