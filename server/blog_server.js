@@ -15,10 +15,11 @@ dotenv.config();
 
 //middelwares
 app.use(cors({
-    origin: "https://blog-heaven.onrender.com",
+    origin: process.env.API_URI,
     headers: ["Content-Type"],
     credentials: true,
 }));
+
 app.use(express.json());
 app.use(express.urlencoded({ extended:true }));
 
