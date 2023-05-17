@@ -15,7 +15,7 @@ dotenv.config();
 
 //middelwares
 // 👇️ specify origins to allow
-const whitelist = ['*'];
+const whitelist = ['*',"https://64651d5a6a0fae009f51277e--glistening-bombolone-6b841d.netlify.app"];
 
 // ✅ Enable pre-flight requests
 app.options('*', cors());
