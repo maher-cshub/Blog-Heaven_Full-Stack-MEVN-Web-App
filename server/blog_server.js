@@ -14,11 +14,21 @@ const port = process.env.PORT || 8000;
 dotenv.config();
 
 //middelwares
-app.use(cors({
-    origin: process.env.API_URI,
-    headers: ["Content-Type"],
-    credentials: true,
-}));
+app.use((req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "*")
+    res.header(
+      "Access-Control-Allow-Headers",
+      "Origin, X-Requested, Content-Type, Accept Authorization"
+    )
+    if (req.method === "OPTIONS") {
+      res.header(
+        "Access-Control-Allow-Methods",
+        "POST, PUT, PATCH, GET, DELETE"
+      )
+      return res.status(200).json({})
+    }
+    next()
+  })
 
 app.use(express.json());
 app.use(express.urlencoded({ extended:true }));
