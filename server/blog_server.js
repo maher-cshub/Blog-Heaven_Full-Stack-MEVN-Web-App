@@ -14,7 +14,11 @@ const port = process.env.PORT || 8000;
 dotenv.config();
 
 //middelwares
-app.use(cors());
+app.use(cors({
+    origin: "https://blog-heaven.onrender.com",
+    headers: ["Content-Type"],
+    credentials: true,
+}));
 app.use(express.json());
 app.use(express.urlencoded({ extended:true }));
 
