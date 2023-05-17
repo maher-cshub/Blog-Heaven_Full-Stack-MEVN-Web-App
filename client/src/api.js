@@ -1,6 +1,7 @@
+import {API_URI} from "./secret"
 import axios from "axios";
 
-const url = "https://blog-heaven.onrender.com";
+const url = API_URI;
 
 export default class API{
 
@@ -34,8 +35,7 @@ export default class API{
 
     //UPDATE POST
     static async updatePost(post_id,post)
-    {   console.log(post_id)
-        console.log(post.values())
+    {   
         const res = await axios.patch(`${url}/posts/update/${post_id}`,post);
         return res.data;
     }

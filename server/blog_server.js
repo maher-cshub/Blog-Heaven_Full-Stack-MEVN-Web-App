@@ -4,6 +4,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const mainRouter = require('./routes/mainRouter');
+const path = require("path")
 
 //setup server
 const app = express();
@@ -16,7 +17,6 @@ dotenv.config();
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended:true }));
-app.use(express.static('uploads'));
 
 
 //database connection
@@ -27,9 +27,12 @@ mongoose.connect(process.env.DB_CONNECT,{
 .then(()=> {console.log('DB CONNECTED !')})
 .catch((err) => {console.log({err: err})})
 
+
+//for static
+app.use("/uploads",express.static('uploads'));
+
 //setting up routes
 app.use('/',mainRouter);
-
 
 //start server
 app.listen(port, () => {console.log(`SERVER RUNNING at http://localhost:${port}`)})

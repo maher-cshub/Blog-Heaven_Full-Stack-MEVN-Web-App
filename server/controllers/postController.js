@@ -55,7 +55,7 @@ module.exports = {
         try 
         {
             await postModel.create(post);
-            res.status(201).json({message: "Post created Successfuly"});
+            res.status(200).json({message: "Post created Successfuly"});
         } 
         catch (error) {
             res.status(404).json({err: error.message});

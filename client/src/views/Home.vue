@@ -8,7 +8,7 @@
         <v-row no-gutters>
           <v-col sm="4" class="pa-3" v-for="post in posts" :key="post._id">
             <v-card class="pa-2 elevate-on-hover" :to="{name: 'seepost', params: {post_id: post._id}}">
-              <v-img height="300" width="400" cover :src="`${post.image}`"></v-img>
+              <v-img height="300" width="400" cover :src="`${static}/${post.image}`"></v-img>
               <v-btn class="pa-ml-4 mt-3" small outlined color="deep-purple">
                    {{post.category}}
               </v-btn>
@@ -27,13 +27,14 @@
 
 <script>
 import API from "../api";
+import { STATIC } from "../secret";
 
 export default {
 
   name: "Home",
   data() {
     return {
-    
+       static: STATIC
     }
   },
   methods:{
@@ -54,7 +55,6 @@ export default {
   async created(){
       this.getAllPosts()
       setInterval(()=>{
-        console.log("ff")
         this.getAllPosts()
       },60000);
   },

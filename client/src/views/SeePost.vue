@@ -4,7 +4,7 @@
       <v-row no-gutters>
         <v-col sm="10" class="pa-4 mx-auto">
           <v-card class="pa-2">
-            <v-img height="600" width="auto"  :src="`/${post.image}`"></v-img>
+            <v-img height="600" width="auto"  :src="`${static}/${post.image}`"></v-img>
             <v-card-actions class="pb-0">
               <v-row class="mt-1 mx-1">
                 <v-col sm="2">
@@ -52,12 +52,15 @@
 
 <script>
 import API from "../api"
+import { STATIC } from "../secret";
+console.log(STATIC)
 export default {
 
   //DATA
   data(){
     return {
       post: {},
+      static:STATIC
     };
   },
   methods: {
