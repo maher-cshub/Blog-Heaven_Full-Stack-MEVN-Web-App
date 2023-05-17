@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const url = "http://localhost:8000";
+const url = "https://blog-heaven.onrender.com";
 
 export default class API{
 
