@@ -24,6 +24,7 @@ app.use(express.urlencoded({ extended:true }));
 
 
 //database connection
+mongoose.set("strictQuery", false);
 mongoose.connect(process.env.DB_CONNECT,{
     useNewUrlParser:true,
     useUnifiedTopology:true,
