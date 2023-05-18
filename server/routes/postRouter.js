@@ -8,7 +8,7 @@ const multer = require('multer');
 //multer middleware
 let storage = multer.diskStorage({
     destination: function(req,file,cb) {
-        cb(null,`${process.env.API_URI}/uploads`);
+        cb(null,`./uploads`);
     },
     filename: function(req,file,cb) {
         cb(null,file.fieldname + "_" + Date.now() + "_" + file.originalname);
