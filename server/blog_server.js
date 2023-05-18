@@ -15,7 +15,7 @@ dotenv.config();
 
 //middelwares
 app.use(cors({
-  origin: `${process.env.APP_URI}`,
+  origin: "*",
   methods: ["GET","POST","PATCH","DELETE","PUT"]
 }))
 
